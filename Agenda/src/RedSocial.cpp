@@ -1,20 +1,20 @@
 /*
- * Agenda.cpp
+ * RedSocial.cpp
  *
  *  Created on: 3/12/2014
- *      Author: Grupo7
+ *      Author: dark
  */
 
-#include "Agenda.h"
+#include "RedSocial.h"
 
 namespace Dentista {
 
-Agenda::Agenda() {
+RedSocial::RedSocial() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Agenda::~Agenda() {
+RedSocial::~RedSocial() {
 	// TODO Auto-generated destructor stub
 }
 

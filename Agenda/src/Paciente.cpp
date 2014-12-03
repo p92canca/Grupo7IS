@@ -1,20 +1,20 @@
 /*
- * Agenda.cpp
+ * Paciente.cpp
  *
  *  Created on: 3/12/2014
- *      Author: Grupo7
+ *      Author: dark
  */
 
-#include "Agenda.h"
+#include "Paciente.h"
 
 namespace Dentista {
 
-Agenda::Agenda() {
+Paciente::Paciente() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Agenda::~Agenda() {
+Paciente::~Paciente() {
 	// TODO Auto-generated destructor stub
 }
 

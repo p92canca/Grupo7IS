@@ -1,20 +1,20 @@
 /*
- * Agenda.cpp
+ * Direccion.cpp
  *
  *  Created on: 3/12/2014
- *      Author: Grupo7
+ *      Author: dark
  */
 
-#include "Agenda.h"
+#include "Direccion.h"
 
 namespace Dentista {
 
-Agenda::Agenda() {
+Direccion::Direccion() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Agenda::~Agenda() {
+Direccion::~Direccion() {
 	// TODO Auto-generated destructor stub
 }
 
