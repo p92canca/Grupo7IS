@@ -8,16 +8,15 @@
 #ifndef SGDB_H_
 #define SGDB_H_
 
+#include "Contacto.h"
+#include "SGDBFichero.h"
+
 namespace Dentista {
 
 class SGDB {
 public:
 	SGDB();
 	virtual ~SGDB();
-
-	void guardar(list<>)
-
-private:
 
 };
 

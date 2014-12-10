@@ -1,20 +1,20 @@
 /*
- * Paciente.cpp
+ * Contacto.cpp
  *
  *  Created on: 3/12/2014
- *      Author: dark
+ *      Author: Grupo7
  */
 
-#include "Paciente.h"
+#include "Contacto.h"
 
 namespace Dentista {
 
-Paciente::Paciente() {
+Contacto::Contacto() {
 	// TODO Auto-generated constructor stub
 
 }
 
-Paciente::~Paciente() {
+Contacto::~Contacto() {
 	// TODO Auto-generated destructor stub
 }
 

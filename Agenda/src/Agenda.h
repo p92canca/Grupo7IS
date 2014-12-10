@@ -9,7 +9,11 @@
 #define AGENDA_H_
 
 #include <string>
-#include "Paciente.h"
+#include <list>
+
+#include "Contacto.h"
+#include "SGDB.h"
+#include <list>
 
 namespace Dentista {
 
@@ -18,8 +22,28 @@ public:
 	Agenda();
 	virtual ~Agenda();
 
-private:
+	void insertar(Contacto &c)
+	{
 
+	}
+
+	void eliminar(std::string dni)
+	{
+
+	}
+
+	void modificar(std::string dni, Contacto c)
+	{
+
+	}
+
+	std::list<Contacto> buscarFavoritos()
+	{
+
+	}
+private:
+	std::list<Contacto> pacientes;
+	SGDB gestor;
 };
 } /* namespace Dentista */
 

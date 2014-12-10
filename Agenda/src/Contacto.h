@@ -5,8 +5,8 @@
  *      Author: dark
  */
 
-#ifndef PACIENTE_H_
-#define PACIENTE_H_
+#ifndef CONTACTO_H_
+#define CONTACTO_H_
 
 #include <list>
 #include <string>
@@ -15,10 +15,10 @@
 
 namespace Dentista {
 
-class Paciente {
+class Contacto {
 public:
-	Paciente();
-	virtual ~Paciente();
+	Contacto();
+	virtual ~Contacto();
 
 	const std::string& getAnotaciones() const {
 		return anotaciones;
@@ -133,4 +133,4 @@ private:
 
 } /* namespace Dentista */
 
-#endif /* PACIENTE_H_ */
+#endif /* CONTACTO_H_ */
