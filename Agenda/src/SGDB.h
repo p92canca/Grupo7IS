@@ -8,8 +8,8 @@
 #ifndef SGDB_H_
 #define SGDB_H_
 
+#include <list>
 #include "Contacto.h"
-#include "SGDBFichero.h"
 
 namespace Dentista {
 
@@ -18,6 +18,9 @@ public:
 	SGDB();
 	virtual ~SGDB();
 
+	virtual void guardar(std::list<Contacto> pacientes) = 0;
+
+	virtual std::list<Contacto> cargar() = 0;
 };
 
 } /* namespace Dentista */

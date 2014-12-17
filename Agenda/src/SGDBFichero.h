@@ -9,16 +9,26 @@
 #define SGDBFICHERO_H_
 
 #include <string>
+#include "SGDB.h"
 
 namespace Dentista {
 
-class SGDBFichero {
+class SGDBFichero: public SGDB {
+private:
+	std::string fichero;
 public:
 	SGDBFichero();
 	virtual ~SGDBFichero();
 
-private:
-	std::string fichero;
+	void guardar(std::list<Contacto> pacientes){
+
+	}
+
+	std::list<Contacto> cargar(){
+		std::list<Contacto> pacientes;
+
+		return pacientes;
+	}
 };
 
 } /* namespace Dentista */
