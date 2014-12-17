@@ -63,6 +63,17 @@ public:
 		remove(fichero.c_str());
 		rename(auxiliar.c_str(), fichero.c_str());*/
 
+		std::list<Contacto>::iterator it = _pacientes.begin();
+		std::string prueba;
+		while(it != _pacientes.end()) {
+			if((*it).getApellidos().compare(c.getApellidos()) > 0)
+			{
+				_pacientes.insert(it, c);
+				break;
+			}
+			it++;
+		}
+
 		_pacientes.push_back(c);
 	}
 

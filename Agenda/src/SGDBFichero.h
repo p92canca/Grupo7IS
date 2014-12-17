@@ -9,6 +9,7 @@
 #define SGDBFICHERO_H_
 
 #include <string>
+#include <fstream>
 #include "SGDB.h"
 
 namespace Dentista {
@@ -26,6 +27,18 @@ public:
 
 	std::list<Contacto> cargar(){
 		std::list<Contacto> pacientes;
+		std::ifstream flujoEntrada;
+		Contacto c;
+
+		flujoEntrada.open(fichero.c_str(), std::ios::in);
+
+		flujoEntrada.read((char *) (&c), sizeof(Contacto));
+		while(flujoEntrada)
+		{
+			pacientes.push_back(c);
+			flujoEntrada.read((char *) (&c), sizeof(Contacto));
+		}
+		flujoEntrada.close();
 
 		return pacientes;
 	}
