@@ -7,7 +7,8 @@
 //============================================================================
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
+#include <vector>
 #include "Agenda.h"
 
 using namespace std;
@@ -48,7 +49,15 @@ int main() {
 
 			case 3:
 			{
+				system("cls");
+				cout << "MOSTRANDO FAVORITOS" << endl;
+				cout << "*******************" << endl;
 
+				list<Contacto> favoritos;
+				favoritos = buscarFavoritos();		// ¿Por qué no reconoce la función que está en Agenda.h?
+
+				getchar();
+				getchar();
 				break;
 			}
 
