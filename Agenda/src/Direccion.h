@@ -9,6 +9,8 @@
 #define DIRECCION_H_
 
 #include <string>
+#include <iostream>
+#include <cstdio>
 
 namespace Dentista {
 
@@ -82,6 +84,9 @@ private:
 	int cp;
 	std::string localidad;
 };
+
+Direccion introducirDireccion();
+
 } /* namespace Dentista */
 
 #endif /* DIRECCION_H_ */

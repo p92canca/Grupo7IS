@@ -73,8 +73,6 @@ public:
 			}
 			it++;
 		}
-
-		_pacientes.push_back(c);
 	}
 
 	void eliminar(std::string dni)
@@ -119,10 +117,39 @@ public:
 
 		return favoritos;
 	}
+
+	std::list<Contacto> buscarContacto(std::string apellidos)
+	{
+		std::list<Contacto> encontrados;
+		std::list<Contacto>::iterator it = _pacientes.begin();
+
+		while(it != _pacientes.end()) {
+			if((*it).getApellidos() == apellidos)
+				encontrados.push_back((*it));
+
+			it++;
+		}
+
+		return encontrados;
+	}
+
+	bool existeDNI(std::string dni){
+		std::list<Contacto>::iterator it = _pacientes.begin();
+		std::string prueba;
+		while(it != _pacientes.end()) {
+			if((*it).getDni() == dni)
+				return true;
+			it++;
+		}
+
+		return false;
+	}
+
 private:
 	std::list<Contacto> _pacientes;
 	SGDBFichero _gestor;
 };
+
 } /* namespace Dentista */
 
 

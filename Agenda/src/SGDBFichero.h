@@ -16,9 +16,9 @@ namespace Dentista {
 
 class SGDBFichero: public SGDB {
 private:
-	std::string fichero;
+	std::string _fichero;
 public:
-	SGDBFichero();
+	SGDBFichero(std::string f);
 	virtual ~SGDBFichero();
 
 	void guardar(std::list<Contacto> pacientes){
@@ -30,7 +30,7 @@ public:
 		std::ifstream flujoEntrada;
 		Contacto c;
 
-		flujoEntrada.open(fichero.c_str(), std::ios::in);
+		flujoEntrada.open(_fichero.c_str(), std::ios::in);
 
 		flujoEntrada.read((char *) (&c), sizeof(Contacto));
 		while(flujoEntrada)
@@ -42,6 +42,8 @@ public:
 
 		return pacientes;
 	}
+
+	void setFichero(std::string f) { _fichero = f; }
 };
 
 } /* namespace Dentista */

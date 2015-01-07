@@ -9,9 +9,9 @@
 
 namespace Dentista {
 
-SGDBFichero::SGDBFichero() {
+SGDBFichero::SGDBFichero(std::string f) {
 	// TODO Auto-generated constructor stub
-
+	setFichero(f);
 }
 
 SGDBFichero::~SGDBFichero() {

@@ -9,6 +9,7 @@
 #define REDSOCIAL_H_
 
 #include <string>
+#include <iostream>
 
 namespace Dentista {
 
@@ -37,6 +38,9 @@ private:
 	std::string nombreRed;
 	std::string usuario;
 };
+
+RedSocial introducirRedSocial();
+
 } /* namespace Dentista */
 
 #endif /* REDSOCIAL_H_ */

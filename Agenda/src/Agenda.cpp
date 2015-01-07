@@ -7,6 +7,8 @@
 
 #include "Agenda.h"
 
+using namespace std;
+
 namespace Dentista {
 
 Agenda::Agenda() {
