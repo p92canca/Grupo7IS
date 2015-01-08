@@ -81,6 +81,21 @@ public:
 		return favoritos;
 	}
 
+	std::list<Contacto> buscarFrecuentes()	// Devuelve una lista de los 10 contactos usados más frecuentemente
+	{
+		std::list<Contacto> frecuentes;
+		std::list<Contacto>::iterator it = _pacientes.begin();
+
+		while(it != _pacientes.end()) {
+			if((*it).isFavorito())
+				frecuentes.push_back((*it));
+
+			it++;
+		}
+
+		return frecuentes;
+	}
+
 	std::list<Contacto> buscarContacto(std::string apellidos)
 	{
 		std::list<Contacto> encontrados;
@@ -106,6 +121,10 @@ public:
 		}
 
 		return false;
+	}
+
+	void borrarContacto(Contacto &c) {
+
 	}
 
 	void cargarLista(){

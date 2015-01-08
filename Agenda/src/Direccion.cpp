@@ -64,7 +64,7 @@ Direccion introducirDireccion() {
 
 void mostrarDireccion(Direccion d) {
 	cout << d.getCalle() << ", Nº " << d.getNumero() << endl;
-	if(d.getEscalera() != '-')
+	if(d.getEscalera() != "-")
 		cout << "Escalera: "  << d.getEscalera();
 	if(d.getPiso() != '-')
 		cout << "Piso: "  << d.getPiso();
