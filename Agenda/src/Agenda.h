@@ -27,42 +27,6 @@ public:
 
 	void insertar(Contacto &c)
 	{
-		/*std::string auxiliar="auxiliar.tmp", fichero;
-		std::ifstream flujoEntrada;
-		std::ofstream flujoSalida;
-		bool salir=false;
-		Contacto personaAux;
-
-		flujoEntrada.open(fichero.c_str(), ios::in);
-		flujoSalida.open(auxiliar.c_str(), ios::app);
-
-		//Bloque de traspaso de datos al fichero auxiliar
-		flujoEntrada.read((char *) (&personaAux), sizeof(Persona));
-		while(flujoEntrada && !salir)
-		{
-			if(c.dni() > personaAux.dni())
-			{
-				flujoSalida.write((char *) (&personaAux), sizeof(Contacto));
-				flujoEntrada.read((char *) (&personaAux), sizeof(Contacto));
-			}
-			else
-			{
-				salir = true;
-			}
-		}
-		flujoSalida.write((char *) (&c), sizeof(Contacto));
-		while(flujoEntrada)
-		{
-			flujoSalida.write((char *) (&personaAux), sizeof(Contacto));
-			flujoEntrada.read((char *) (&personaAux), sizeof(Contacto));
-		}
-
-		flujoEntrada.close();
-		flujoSalida.close();
-
-		remove(fichero.c_str());
-		rename(auxiliar.c_str(), fichero.c_str());*/
-
 		std::list<Contacto>::iterator it = _pacientes.begin();
 		while(it != _pacientes.end()) {
 			if((*it).getApellidos().compare(c.getApellidos()) > 0)
@@ -146,6 +110,10 @@ public:
 
 	void cargarLista(){
 		_pacientes = _gestor.cargar();
+	}
+
+	void guardarLista(){
+		_gestor.guardar(_pacientes);
 	}
 
 	void setGestor(SGDBFichero g) { _gestor = g; }

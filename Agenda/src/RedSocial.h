@@ -40,6 +40,7 @@ private:
 };
 
 RedSocial introducirRedSocial();
+void mostrarRedSocial(RedSocial red);
 
 } /* namespace Dentista */
 

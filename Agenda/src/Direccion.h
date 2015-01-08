@@ -86,6 +86,7 @@ private:
 };
 
 Direccion introducirDireccion();
+void mostrarDireccion(Direccion d);
 
 } /* namespace Dentista */
 

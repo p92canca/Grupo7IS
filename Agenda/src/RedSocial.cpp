@@ -37,4 +37,9 @@ RedSocial introducirRedSocial() {
 	return insertar;
 }
 
+void mostrarRedSocial(RedSocial red) {
+	cout << "Red Social: " << red.getNombreRed() << endl;
+	cout << "Nombre de Usuario: " << red.getUsuario() << endl;
+}
+
 } /* namespace Dentista */

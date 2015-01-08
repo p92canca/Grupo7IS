@@ -62,4 +62,17 @@ Direccion introducirDireccion() {
 	return insertar;
 }
 
+void mostrarDireccion(Direccion d) {
+	cout << d.getCalle() << ", Nº " << d.getNumero() << endl;
+	if(d.getEscalera() != '-')
+		cout << "Escalera: "  << d.getEscalera();
+	if(d.getPiso() != '-')
+		cout << "Piso: "  << d.getPiso();
+	if(d.getPuerta() != '-')
+		cout << "Escalera: "  << d.getPuerta();
+	cout << endl;
+	cout << "CP: " << d.getCp() << "\t" << d.getLocalidad();
+	cout << endl;
+}
+
 } /* namespace Dentista */

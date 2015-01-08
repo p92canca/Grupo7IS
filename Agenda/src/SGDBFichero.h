@@ -27,7 +27,7 @@ public:
 		std::ofstream flujoSalida;
 		Contacto personaAux;
 
-		flujoSalida.open(auxiliar.c_str(), ios::out);
+		flujoSalida.open(auxiliar.c_str(), std::ios::out);
 
 		std::list<Contacto>::iterator it = pacientes.begin();
 
@@ -39,7 +39,7 @@ public:
 		flujoSalida.close();
 
 		remove(_fichero.c_str());
-		rename(auxiliar.c_str(), _fichero.c_str());*/
+		rename(auxiliar.c_str(), _fichero.c_str());
 
 	}
 
