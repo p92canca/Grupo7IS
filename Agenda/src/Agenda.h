@@ -64,7 +64,6 @@ public:
 		rename(auxiliar.c_str(), fichero.c_str());*/
 
 		std::list<Contacto>::iterator it = _pacientes.begin();
-		std::string prueba;
 		while(it != _pacientes.end()) {
 			if((*it).getApellidos().compare(c.getApellidos()) > 0)
 			{
@@ -143,6 +142,20 @@ public:
 		}
 
 		return false;
+	}
+
+	void cargarLista(){
+		_pacientes = _gestor.cargar();
+	}
+
+	void setGestor(SGDBFichero g) { _gestor = g; }
+	void setPacientes(std::list<Contacto> p) {
+		std::list<Contacto>::iterator it = p.begin();
+
+		while(it != _pacientes.end()) {
+			_pacientes.push_back((*it));
+			it++;
+		}
 	}
 
 private:

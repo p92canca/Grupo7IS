@@ -22,7 +22,10 @@ int main() {
 
 	string fichero = "agenda";
 	SGDBFichero almacenamiento(fichero);
-	Agenda agenda = almacenamiento.cargar();
+	Agenda agenda;
+
+	agenda.setGestor(almacenamiento);
+	agenda.cargarLista();
 
 	int opcion;
 

@@ -18,10 +18,28 @@ class SGDBFichero: public SGDB {
 private:
 	std::string _fichero;
 public:
-	SGDBFichero(std::string f);
+	SGDBFichero() throw () { }
+	SGDBFichero(std::string fichero)  throw () { _fichero = fichero; }
 	virtual ~SGDBFichero();
 
 	void guardar(std::list<Contacto> pacientes){
+		std::string auxiliar="auxiliar.tmp";
+		std::ofstream flujoSalida;
+		Contacto personaAux;
+
+		flujoSalida.open(auxiliar.c_str(), ios::out);
+
+		std::list<Contacto>::iterator it = pacientes.begin();
+
+		while(it != pacientes.end()) {
+			flujoSalida.write((char *) (&it), sizeof(Contacto));
+			it++;
+		}
+
+		flujoSalida.close();
+
+		remove(_fichero.c_str());
+		rename(auxiliar.c_str(), _fichero.c_str());*/
 
 	}
 
