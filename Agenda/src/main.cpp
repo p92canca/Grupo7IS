@@ -38,6 +38,7 @@ int main() {
 			case 0:
 			{
 				cout << endl << "\t\tHa seleccionado salir.";
+				agenda.guardarLista();
 				getchar();
 				getchar();
 
