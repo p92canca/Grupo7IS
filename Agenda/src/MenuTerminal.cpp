@@ -53,12 +53,104 @@ void visualizarAgenda(Agenda &a) {
 
 }
 
-void modificarContacto() {
+bool modificarContacto(Contacto &c, Agenda &agenda) {
 
+	if(introducirDatosContacto(agenda, c))
+		cout << endl << "Usuario modificado con éxito.";
+	return true;
 }
 
-void eliminarContacto(std::string dni) {
+bool eliminarContacto(std::string dni) {
 
+	return true;
+}
+
+bool introducirDatosContacto(Agenda &agenda, Contacto &nuevo) {
+	char seguir = 'S';
+	int contadorDireccion = 1;
+	int contadorRed = 1;
+
+	string nombre;
+	string apellidos;
+	string dni;
+	int telefono1;
+	int telefono2;
+	string correo1;
+	string correo2;
+	list<Direccion> direccion;
+	string anotaciones;
+	list<RedSocial> redes;
+
+	Direccion direccionAuxiliar;
+	RedSocial redSocialAuxiliar;
+
+	cout << endl << "Nombre: ";
+	cin >> nombre;
+	nuevo.setNombre(nombre);
+
+	cout << endl << "Apellidos: ";
+	cin >> apellidos;
+	nuevo.setApellidos(apellidos);
+
+	cout << endl << "DNI: ";
+	cin >> dni;
+	nuevo.setDni(dni);
+	if(agenda.existeDNI(dni))
+	{
+		cout << endl << "Error, el DNI introducido ya existe.";
+		return false;
+	}
+
+	cout << endl << "Teléfono: ";
+	cin >> telefono1;
+	nuevo.setTelefono1(telefono1);
+	fflush(stdin);
+
+	cout << endl << "Segundo teléfono (opcional): ";
+	cin >> telefono2;
+	nuevo.setTelefono2(telefono2);
+	fflush(stdin);
+
+	cout << endl << "Correo electrónico:  ";
+	cin >> correo1;
+	nuevo.setCorreo1(correo1);
+	fflush(stdin);
+
+	cout << endl << "Segundo correo electrónico (opcional): ";
+	cin >> correo2;
+	nuevo.setCorreo2(correo2);
+	fflush(stdin);
+
+	do{
+		cout << endl << "Dirección " << contadorDireccion << ": ";
+		direccionAuxiliar = introducirDireccion();
+		direccion.push_back(direccionAuxiliar);
+
+		cout << endl << "¿Desea introducir otra dirección? (S/N) ";
+		cin >> seguir;
+
+		contadorDireccion++;
+	}while(seguir == 's' || seguir == 'S');
+
+	do{
+		cout << endl << "Red Social " << contadorRed << ": ";
+		redSocialAuxiliar = introducirRedSocial();
+		redes.push_back(redSocialAuxiliar);
+
+		cout << endl << "¿Desea introducir otra Red Social? (S/N) ";
+		cin >> seguir;
+
+		contadorRed++;
+	}while(seguir == 's' || seguir == 'S');
+
+	cout << endl << "Anotaciones: ";
+	cin >> anotaciones;
+	nuevo.setAnotaciones(anotaciones);
+
+	nuevo.setFavorito(false);
+	nuevo.setContadorAcceso(0);
+
+	return true;
 }
 
 } /* namespace Dentista */

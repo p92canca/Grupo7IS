@@ -23,8 +23,9 @@ public:
 
 void visualizarContacto(Contacto &c);
 void visualizarAgenda(Agenda &a);
-void modificarContacto();
-void eliminarContacto(std::string dni);
+bool modificarContacto(Contacto &c, Agenda &agenda);
+bool eliminarContacto(std::string dni);
+bool introducirDatosContacto(Agenda &agenda, Contacto &nuevo);
 
 } /* namespace Dentista */
 

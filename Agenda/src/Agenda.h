@@ -27,15 +27,21 @@ public:
 
 	void insertar(Contacto &c)
 	{
+		std::cout << "-----------" << std::endl << c.getNombre();
+		bool insertado = false;
+
 		std::list<Contacto>::iterator it = _pacientes.begin();
 		while(it != _pacientes.end()) {
 			if((*it).getApellidos().compare(c.getApellidos()) > 0)
 			{
 				_pacientes.insert(it, c);
+				insertado = true;
 				break;
 			}
 			it++;
 		}
+		if(not insertado)
+			_pacientes.insert(it, c);
 	}
 
 	void eliminar(std::string dni)
@@ -121,10 +127,6 @@ public:
 		}
 
 		return false;
-	}
-
-	void borrarContacto(Contacto &c) {
-
 	}
 
 	void cargarLista(){

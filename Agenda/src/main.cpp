@@ -16,7 +16,6 @@ using namespace std;
 using namespace Dentista;
 
 int menu();
-bool introducirDatosContacto(Agenda &agenda, Contacto &nuevo);
 
 int main() {
 	system("cls");
@@ -38,7 +37,7 @@ int main() {
 			case 0:
 			{
 				cout << endl << "\t\tHa seleccionado salir.";
-				agenda.guardarLista()
+				agenda.guardarLista();
 				getchar();
 				getchar();
 
@@ -86,6 +85,7 @@ int main() {
 				if(introducirDatosContacto(agenda, nuevo))
 					agenda.insertar(nuevo);
 
+				//visualizarContacto(nuevo);
 				getchar();
 				getchar();
 				break;
@@ -184,11 +184,11 @@ int main() {
 						visualizarContacto((*it));
 						it++;
 					}
+
 					/*
 					 Seleccionar el contacto
 					*/
-					if(introducirDatosContacto(agenda, (*it)))
-						cout << endl << "Usuario modificado con éxito.";
+					modificarContacto(*it, agenda);
 				}
 				else
 					cout << "No se ha encontrado el contacto." << endl;
@@ -221,7 +221,7 @@ int main() {
 					/*
 					 Seleccionar el contacto
 					*/
-					agenda.borrarContacto((*it));
+					//eliminarContacto((*it));
 				}
 				else
 					cout << "No se ha encontrado el contacto." << endl;

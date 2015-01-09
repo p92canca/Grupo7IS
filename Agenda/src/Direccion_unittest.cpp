@@ -11,7 +11,7 @@
 
 //#include <fstream>
 //#include <list>
-#include <string>
+/*#include <string>
 #include "Direccion.h"
 #include "gtest/gtest.h"
 
@@ -58,4 +58,4 @@ TEST(Direccion, setPuertaygetPuerta) {
   Direccion d;
   d.setPuerta('C');
   EXPECT_EQ('C', d.getPuerta());
-}
+}*/

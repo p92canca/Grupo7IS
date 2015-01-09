@@ -1,6 +1,6 @@
 // SGDBFichero_unittest.cpp: Grupo7
 
-TEST(Jugador, setApuestasygetApuestas) {
+/*TEST(Jugador, setApuestasygetApuestas) {
   Jugador j("33XX", "1");
   string nomfich=j.getDNI()+".txt";
   ofstream salida(nomfich.c_str());
@@ -30,5 +30,5 @@ TEST(Jugador, setApuestasygetApuestas) {
   EXPECT_EQ(4, (*i).tipo);
   EXPECT_EQ("bajo", (*i).valor);
   EXPECT_EQ(45, (*i).cantidad);
-}
+}*/
 
