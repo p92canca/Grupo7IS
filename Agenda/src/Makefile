@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = Contacto_unittest
+TESTS = Contacto_unittest Direccion_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -73,7 +73,15 @@ gtest_main.a : gtest-all.o gtest_main.o
 
 Contacto.o : Contacto.cpp Contacto.h
 
+Direccion.o : Direccion.cpp Direccion.h
+
 Contacto_unittest.o : Contacto_unittest.cpp Contacto.h Contacto.cpp
+
+Direccion_unittest.o : Direccion_unittest.cpp Direccion.h Direccion.cpp
 
 Contacto_unittest : Contacto.o Contacto_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+Direccion_unittest : Direccion.o Direccion_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
