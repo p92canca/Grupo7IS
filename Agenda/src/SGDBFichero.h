@@ -10,6 +10,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 #include "SGDB.h"
 
 namespace Dentista {

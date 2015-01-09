@@ -12,6 +12,7 @@
 #include <string>
 #include "RedSocial.h"
 #include "Direccion.h"
+#include "Agenda.h"
 
 namespace Dentista {
 
@@ -130,6 +131,8 @@ private:
 	bool favorito;
 	std::list<RedSocial> redes;
 };
+
+bool introducirDatosContacto(Agenda &agenda, Contacto &nuevo);
 
 } /* namespace Dentista */
 
