@@ -16,7 +16,7 @@ namespace Dentista {
 class RedSocial {
 public:
 	RedSocial();
-	virtual ~RedSocial();
+	virtual ~RedSocial(){};
 
 	const std::string& getNombreRed() const {
 		return nombreRed;

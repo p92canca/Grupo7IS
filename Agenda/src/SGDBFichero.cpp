@@ -14,8 +14,4 @@ namespace Dentista {
 	setFichero(f);
 }*/
 
-SGDBFichero::~SGDBFichero() {
-	// TODO Auto-generated destructor stub
-}
-
 } /* namespace Dentista */

@@ -18,7 +18,7 @@ using namespace Dentista;
 int menu();
 
 int main() {
-	system("cls");
+	system("clear");
 
 	string fichero = "agenda";
 	SGDBFichero almacenamiento(fichero);
@@ -46,7 +46,7 @@ int main() {
 
 			case 1:
 			{
-				system("cls");
+				system("clear");
 				cout << "BUSCAR DATOS DE PACIENTES" << endl;
 				cout << "*************************" << endl;
 
@@ -76,8 +76,8 @@ int main() {
 
 			case 2:
 			{
-				system("cls");
-				cout << "AÑADIR UN NUEVO CONTACTO" << endl;
+				system("clear");
+				cout << "AGREGAR UN NUEVO CONTACTO" << endl;
 				cout << "************************" << endl;
 
 				Contacto nuevo;
@@ -85,7 +85,7 @@ int main() {
 				if(introducirDatosContacto(agenda, nuevo))
 					agenda.insertar(nuevo);
 
-				//visualizarContacto(nuevo);
+				visualizarContacto(nuevo);
 				getchar();
 				getchar();
 				break;
@@ -93,17 +93,19 @@ int main() {
 
 			case 3:
 			{
-				system("cls");
-				cout << "MOSTRANDO LOS 10 CONTACTOS MÁS FRECUENTES" << endl;
+				system("clear");
+				cout << "MOSTRANDO LOS 10 CONTACTOS MAS FRECUENTES" << endl;
 				cout << "*****************************************" << endl;
 
+				int contador = 0;
 				list<Contacto> frecuentes;
-				frecuentes = agenda.buscarFavoritos();
+				frecuentes = agenda.buscarFrecuentes();
 
 				std::list<Contacto>::iterator it = frecuentes.begin();
-				while(it != frecuentes.end()) {
+				while(it != frecuentes.end() && contador < 10) {
 					visualizarContacto((*it));
 					it++;
+					contador++;
 				}
 
 				getchar();
@@ -113,7 +115,7 @@ int main() {
 
 			case 4:
 			{
-				system("cls");
+				system("clear");
 				cout << "MOSTRANDO FAVORITOS" << endl;
 				cout << "*******************" << endl;
 
@@ -133,8 +135,8 @@ int main() {
 
 			case 5:		// Falta que permita seleccionar a uno de los contactos
 			{
-				system("cls");
-				cout << "AÑADIR CONTACTO A FAVORITOS" << endl;
+				system("clear");
+				cout << "AGREGAR CONTACTO A FAVORITOS" << endl;
 				cout << "***************************" << endl;
 
 				list<Contacto> encontrados;
@@ -145,16 +147,31 @@ int main() {
 
 				encontrados = agenda.buscarContacto(apellidos);
 
+				//Listado de usuario, seleccionar por numero
+
 				if(encontrados.size() != 0){
 					list<Contacto>::iterator it = encontrados.begin();
+					int orden = 1;
+		
 					while(it != encontrados.end()) {
+
 						visualizarContacto((*it));
 						it++;
 					}
 					/*
 					 Seleccionar el contacto
 					*/
-					(*it).setFavorito(true);
+					it = encontrados.begin();
+					if(encontrados.size() > 1){
+						do{
+							cout << "\n\nVarias coincidencias, introduzca el orden: ";
+							cin >>	orden;
+
+						}while(orden < 1 || orden > encontrados.size());
+
+						for(int i=0; i < orden-1; i++) it++;
+					}
+					agregarFavorito(agenda, *it);
 				}
 				else
 					cout << "No se ha encontrado el contacto." << endl;
@@ -166,7 +183,7 @@ int main() {
 
 			case 6:
 			{
-				system("cls");
+				system("clear");
 				cout << "MODIFICANDO DATOS DE CONTACTO" << endl;
 				cout << "*****************************" << endl;
 
@@ -180,15 +197,27 @@ int main() {
 
 				if(encontrados.size() != 0){
 					list<Contacto>::iterator it = encontrados.begin();
+					int orden = 1;
+		
 					while(it != encontrados.end()) {
+
 						visualizarContacto((*it));
 						it++;
 					}
-
 					/*
 					 Seleccionar el contacto
 					*/
-					modificarContacto(*it, agenda);
+					it = encontrados.begin();
+					if(encontrados.size() > 1){
+						do{
+							cout << "\n\nVarias coincidencias, introduzca el orden: ";
+							cin >>	orden;
+
+						}while(orden < 1 || orden > encontrados.size());
+
+						for(int i=0; i < orden-1; i++) it++;
+					}
+					modificarContacto(agenda,(*it));
 				}
 				else
 					cout << "No se ha encontrado el contacto." << endl;
@@ -200,7 +229,7 @@ int main() {
 
 			case 7:
 			{
-				system("cls");
+				system("clear");
 				cout << "ELIMINAR DATOS DE CONTACTO" << endl;
 				cout << "**************************" << endl;
 
@@ -214,14 +243,27 @@ int main() {
 
 				if(encontrados.size() != 0){
 					list<Contacto>::iterator it = encontrados.begin();
+					int orden = 1;
+		
 					while(it != encontrados.end()) {
+
 						visualizarContacto((*it));
 						it++;
 					}
 					/*
 					 Seleccionar el contacto
 					*/
-					//eliminarContacto((*it));
+					it = encontrados.begin();
+					if(encontrados.size() > 1){
+						do{
+							cout << "\n\nVarias coincidencias, introduzca el orden: ";
+							cin >>	orden;
+
+						}while(orden < 1 || orden > encontrados.size());
+
+						for(int i=0; i < orden-1; i++) it++;
+					}
+					eliminarContacto((*it).getDni(),agenda);
 				}
 				else
 					cout << "No se ha encontrado el contacto." << endl;
@@ -233,11 +275,35 @@ int main() {
 
 			case 8:
 			{
-				system("cls");
+				system("clear");
 				cout << "GENERANDO INFORME DE AGENDA" << endl;
 				cout << "***************************" << endl;
 
+				if(crearInforme(*agenda.getPacientes()))
+					cout << "Informe creado con Ã©xito." << endl;
+				else
+					cout << "Error al crear el informe." << endl;
 
+				getchar();
+				getchar();
+				break;
+			}
+
+			case 9:
+			{
+				system("clear");
+				cout << "GENERANDO COPIA DE SEGURIDAD DEL ARCHIVO AGENDA" << endl;
+				cout << "***********************************************" << endl;
+				
+				string backup;
+
+				cout << "Introduzca nombre que recibirÃ¡ el fichero de seguridad: ";
+				cin >> backup;
+
+				SGDBFichero copiaSeguridad(backup);
+				copiaSeguridad.guardar(*agenda.getPacientes());
+
+				cout << endl << "Se ha realizado la copia de seguridad en el fichero: " << backup << endl;
 				getchar();
 				getchar();
 				break;
@@ -245,7 +311,7 @@ int main() {
 
 			default:
 			{
-				cout << endl << "\t\tOpción incorrecta. Inténtelo de nuevo.";
+				cout << endl << "\t\tOpcion incorrecta. Intentelo de nuevo.";
 				getchar();
 				getchar();
 			}
@@ -259,7 +325,7 @@ int menu() {
 	int opcion;
 
 	do{
-		system("cls");
+		system("clear");
 
 		cout << "MENU DEL SISTEMA AGENDA" << endl;
 		cout << "***********************" << endl;
@@ -267,18 +333,19 @@ int menu() {
 		cout << "(2) Insertar nuevo contacto" << endl;
 		cout << "(3) Mostrar consultas frecuentes" << endl;
 		cout << "(4) Mostrar favoritos" << endl;
-		cout << "(5) Añadir contacto a favoritos" << endl;
+		cout << "(5) Agregar contacto a favoritos" << endl;
 		cout << "(6) Modificar datos de paciente" << endl;
 		cout << "(7) Borrar datos de paciente" << endl;
 		cout << "(8) Generar informe" << endl;
+		cout << "(9) Generar copia de seguridad" << endl;
 		cout << "(0) Salir" << endl << endl;
 
 		cout << "Su opcion: ";
 		cin >> opcion;
 
-		if(opcion < 0 || opcion > 8)
-			cout << endl << endl << "\tOpción incorrecta. Inténtelo de nuevo.";
-	}while(opcion < 0 && opcion > 8);
+		if(opcion < 0 || opcion > 9)
+			cout << endl << endl << "\tOpcion incorrecta. Intentelo de nuevo.";
+	}while(opcion < 0 && opcion > 9);
 
 	return opcion;
 }

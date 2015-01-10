@@ -11,13 +11,6 @@ using namespace std;
 
 namespace Dentista {
 
-Agenda::Agenda() {
-	// TODO Auto-generated constructor stub
 
-}
-
-Agenda::~Agenda() {
-	// TODO Auto-generated destructor stub
-}
 
 } /* namespace Dentista */

@@ -14,16 +14,19 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Contacto.h"
+
 #include "SGDBFichero.h"
-#include <list>
 
 namespace Dentista {
 
 class Agenda{
 public:
-	Agenda();
-	virtual ~Agenda();
+
+	std::list<Contacto> * getPacientes()
+	{
+
+		return &_pacientes;
+	}
 
 	void insertar(Contacto &c)
 	{
@@ -43,12 +46,12 @@ public:
 			_pacientes.insert(it, c);
 	}
 
-	void eliminar(std::string dni)
+	void eliminar(Contacto &c)
 	{
 		std::list<Contacto>::iterator it = _pacientes.begin();
 
 		while(it != _pacientes.end()) {
-			if((*it).getDni() == dni){
+			if((*it).getDni() == c.getDni()){
 				_pacientes.erase(it);
 				break;
 			}
@@ -57,12 +60,12 @@ public:
 		}
 	}
 
-	void modificar(std::string dni, Contacto c)
+	void modificar(Contacto c)
 	{
 		std::list<Contacto>::iterator it = _pacientes.begin();
 
 		while(it != _pacientes.end()) {
-			if((*it).getDni() == dni){
+			if((*it).getDni() == c.getDni()){
 				(*it) = c;
 				break;
 			}
@@ -77,6 +80,7 @@ public:
 		std::list<Contacto>::iterator it = _pacientes.begin();
 
 		while(it != _pacientes.end()) {
+
 			if((*it).isFavorito())
 				favoritos.push_back((*it));
 
@@ -86,30 +90,41 @@ public:
 		return favoritos;
 	}
 
+	static bool compararFrecuentes(const Contacto& a,const Contacto& b)  {
+
+		return a.getContadorAcceso() > b.getContadorAcceso();
+
+	}
+
 	std::list<Contacto> buscarFrecuentes()	// Devuelve una lista de los 10 contactos usados más frecuentemente
 	{
 		std::list<Contacto> frecuentes;
 		std::list<Contacto>::iterator it = _pacientes.begin();
 
 		while(it != _pacientes.end()) {
-			if((*it).isFavorito())
-				frecuentes.push_back((*it));
-
+			
+			if((*it).getContadorAcceso() != 0) frecuentes.push_back((*it));
 			it++;
 		}
+
+		frecuentes.sort(compararFrecuentes);
 
 		return frecuentes;
 	}
 
+	
 	std::list<Contacto> buscarContacto(std::string apellidos)
 	{
 		std::list<Contacto> encontrados;
 		std::list<Contacto>::iterator it = _pacientes.begin();
+		int contador;
 
 		while(it != _pacientes.end()) {
-			if((*it).getApellidos() == apellidos)
+			if((*it).getApellidos() == apellidos){
 				encontrados.push_back((*it));
-
+				contador = (*it).getContadorAcceso() + 1;
+				(*it).setContadorAcceso(contador);
+			}
 			it++;
 		}
 

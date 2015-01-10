@@ -16,9 +16,6 @@ Direccion::Direccion() {
 
 }
 
-Direccion::~Direccion() {
-	// TODO Auto-generated destructor stub
-}
 
 Direccion introducirDireccion() {
 	Direccion insertar;
@@ -35,7 +32,7 @@ Direccion introducirDireccion() {
 	insertar.setCalle(calle);
 	fflush(stdin);
 
-	cout << endl << "Número: ";
+	cout << endl << "Numero: ";
 	cin >> numero;
 	insertar.setNumero(numero);
 
@@ -51,7 +48,7 @@ Direccion introducirDireccion() {
 	cin >> puerta;
 	insertar.setPuerta(puerta);
 
-	cout << endl << "Código Postal: ";
+	cout << endl << "Codigo Postal: ";
 	cin >> cp;
 	insertar.setCp(cp);
 
@@ -63,7 +60,7 @@ Direccion introducirDireccion() {
 }
 
 void mostrarDireccion(Direccion d) {
-	cout << d.getCalle() << ", Nº " << d.getNumero() << endl;
+	cout << d.getCalle() << ", Numero: " << d.getNumero() << endl;
 	if(d.getEscalera() != "-")
 		cout << "Escalera: "  << d.getEscalera();
 	if(d.getPiso() != '-')

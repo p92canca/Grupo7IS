@@ -16,9 +16,6 @@ RedSocial::RedSocial() {
 
 }
 
-RedSocial::~RedSocial() {
-	// TODO Auto-generated destructor stub
-}
 
 RedSocial introducirRedSocial() {
 	RedSocial insertar;

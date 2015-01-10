@@ -4,7 +4,6 @@
  *  Created on: 10/12/2014
  *      Author: dark
  */
-
 #ifndef SGDB_H_
 #define SGDB_H_
 
@@ -15,8 +14,7 @@ namespace Dentista {
 
 class SGDB {
 public:
-	SGDB();
-	virtual ~SGDB();
+	virtual ~SGDB(){};
 
 	virtual void guardar(std::list<Contacto> pacientes) = 0;
 

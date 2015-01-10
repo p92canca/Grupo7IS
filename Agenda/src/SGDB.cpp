@@ -9,13 +9,6 @@
 
 namespace Dentista {
 
-SGDB::SGDB() {
-	// TODO Auto-generated constructor stub
 
-}
-
-SGDB::~SGDB() {
-	// TODO Auto-generated destructor stub
-}
 
 } /* namespace Dentista */

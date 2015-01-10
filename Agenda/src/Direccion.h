@@ -17,7 +17,7 @@ namespace Dentista {
 class Direccion {
 public:
 	Direccion();
-	virtual ~Direccion();
+	virtual ~Direccion(){};
 
 	const std::string& getCalle() const {
 		return calle;

@@ -18,7 +18,6 @@ namespace Dentista {
 class Contacto {
 public:
 	Contacto();
-	virtual ~Contacto();
 
 	const std::string& getAnotaciones() const {
 		return anotaciones;
@@ -60,13 +59,13 @@ public:
 		this->correo2 = correo2;
 	}
 
-	const std::list<Direccion>& getDireccion() const {
-		return direccion;
-	}
+	// const std::list<Direccion>& getDireccion() const {
+	// 	return direccion;
+	// }
 
-	void setDireccion(const std::list<Direccion>& direccion) {
-		this->direccion = direccion;
-	}
+	// void setDireccion(const std::list<Direccion>& direccion) {
+	// 	this->direccion = direccion;
+	// }
 
 	const std::string& getDni() const {
 		return dni;
@@ -92,13 +91,13 @@ public:
 		this->nombre = nombre;
 	}
 
-	const std::list<RedSocial>& getRedes() const {
-		return redes;
-	}
+	// const std::list<RedSocial>& getRedes() const {
+	// 	return redes;
+	// }
 
-	void setRedes(const std::list<RedSocial>& redes) {
-		this->redes = redes;
-	}
+	// void setRedes(const std::list<RedSocial>& redes) {
+	// 	this->redes = redes;
+	// }
 
 	int getTelefono1() const {
 		return telefono1;
@@ -124,11 +123,11 @@ private:
 	int telefono2;
 	std::string correo1;
 	std::string correo2;
-	std::list<Direccion> direccion;
+	//std::list<Direccion> direccion;
 	std::string anotaciones;
 	int contadorAcceso;
 	bool favorito;
-	std::list<RedSocial> redes;
+	//std::list<RedSocial> redes;
 };
 
 
