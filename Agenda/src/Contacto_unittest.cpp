@@ -9,7 +9,7 @@
 // your tests organized.  You may also throw in additional tests as
 // needed.
 
-/*#include <string>
+#include <string>
 #include "Contacto.h"
 #include "gtest/gtest.h"
 
@@ -56,4 +56,4 @@ TEST(Contacto, setTelefonosygetTelefonos) {
   c.setTelefono2(654893123);
   EXPECT_EQ(678234948, c.getTelefono1());
   EXPECT_EQ(654893123, c.getTelefono2());
-}*/
+}

@@ -9,9 +9,9 @@
 // your tests organized.  You may also throw in additional tests as
 // needed.
 
-//#include <fstream>
-//#include <list>
-/*#include <string>
+#include <fstream>
+#include <list>
+#include <string>
 #include "Direccion.h"
 #include "gtest/gtest.h"
 
@@ -58,4 +58,4 @@ TEST(Direccion, setPuertaygetPuerta) {
   Direccion d;
   d.setPuerta('C');
   EXPECT_EQ('C', d.getPuerta());
-}*/
+}

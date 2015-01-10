@@ -1,7 +1,7 @@
 /*
  * RedSocial_unittest.cpp
  */
-/*#include <string>
+#include <string>
 #include "RedSocial.h"
 #include "gtest/gtest.h"
 
@@ -22,4 +22,4 @@ RedSocial d;
 
  d.setUsuario("@JTR");
  EXPECT_EQ("@JTR", d.getUsuario());
-}*/
+}

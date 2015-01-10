@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = Contacto_unittest Direccion_unittest RedSocial_unittest
+TESTS = Contacto_unittest Direccion_unittest RedSocial_unittest #Agenda_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -77,11 +77,15 @@ Direccion.o : Direccion.cpp Direccion.h
 
 RedSocial.o : RedSocial.cpp RedSocial.h
 
+Agenda.o : Agenda.h Agenda.cpp
+
 Contacto_unittest.o : Contacto_unittest.cpp Contacto.h Contacto.cpp
 
 Direccion_unittest.o : Direccion_unittest.cpp Direccion.h Direccion.cpp
 
 RedSocial_unittest.o : RedSocial_unittest.cpp RedSocial.h RedSocial.cpp
+
+#Agenda_unittest.o : Agenda_unittest.cpp Agenda.h Agenda.cpp
 
 Contacto_unittest : Contacto.o Contacto_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
@@ -91,3 +95,6 @@ Direccion_unittest : Direccion.o Direccion_unittest.o gtest_main.a
 
 RedSocial_unittest : RedSocial.o RedSocial_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+	
+#Agenda_unittest : Agenda.o Agenda_unittest.o gtest_main.a
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@	
