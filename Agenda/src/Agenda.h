@@ -27,7 +27,6 @@ public:
 
 	void insertar(Contacto &c)
 	{
-		std::cout << "-----------" << std::endl << c.getNombre();
 		bool insertado = false;
 
 		std::list<Contacto>::iterator it = _pacientes.begin();

@@ -10,8 +10,11 @@
 
 #include <string>
 #include <fstream>
+#include <cstring>
 #include <iostream>
 #include "SGDB.h"
+
+using namespace std;
 
 namespace Dentista {
 
@@ -28,12 +31,13 @@ public:
 		std::ofstream flujoSalida;
 		Contacto personaAux;
 
-		flujoSalida.open(auxiliar.c_str(), std::ios::out);
+		flujoSalida.open(auxiliar.c_str(), std::ios::app | std::ios::binary);
 
 		std::list<Contacto>::iterator it = pacientes.begin();
 
 		while(it != pacientes.end()) {
-			flujoSalida.write((char *) (&it), sizeof(Contacto));
+			personaAux = (*it);
+			flujoSalida.write((char *) (&personaAux), sizeof(Contacto));
 			it++;
 		}
 
@@ -46,15 +50,17 @@ public:
 
 	std::list<Contacto> cargar(){
 		std::list<Contacto> pacientes;
-		std::ifstream flujoEntrada;
+		std::ifstream flujoEntrada(_fichero.c_str(), std::ios::in | std::ios::binary);
 		Contacto c;
 
-		flujoEntrada.open(_fichero.c_str(), std::ios::in);
+		//flujoEntrada.open(_fichero.c_str(), std::ifstream::in | std::ios::binary);
 
+		//flujoEntrada.read(reinterpret_cast<char *>(&c), flujoEntrada.tellg());
 		flujoEntrada.read((char *) (&c), sizeof(Contacto));
 		while(flujoEntrada)
 		{
 			pacientes.push_back(c);
+			c.getNombre();
 			flujoEntrada.read((char *) (&c), sizeof(Contacto));
 		}
 		flujoEntrada.close();

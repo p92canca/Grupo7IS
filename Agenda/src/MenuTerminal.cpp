@@ -38,7 +38,7 @@ void visualizarContacto(Contacto &c) {
 		it++;
 	}
 	cout << "Redes Sociales:" << endl;
-	auxRed = c.getRedes();
+	//auxRed = c.getRedes();
 	list<RedSocial>::iterator itr = auxRed.begin();
 	while(itr != auxRed.end()) {
 		mostrarRedSocial(*itr);
