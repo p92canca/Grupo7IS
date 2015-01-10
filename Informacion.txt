@@ -1,0 +1,31 @@
+
+Grupo 7:
+--------
+
+Alberto Cañete Carpintero -> p92canca
+Adam Mora Tortajada -> adamora
+Federico Díaz Benítez -> i72dibef
+Rafael Romero Medina -> rafa94
+Jordi Bordoy Nieto → i22bonij
+
+Repositorio Git
+---------------
+
+https://github.com/p92canca/Grupo7IS.git
+
+Instrucciones
+--------------
+para compilar el programa: g++ *.cpp -o main
+
+Dificultades
+------------
+
+Hay funciones que no se han podido implementar debido a diferentes causas:
+
+	- Compañeros que no tenían muchas nociones de c++
+	- Compañeros que han estado (desafortunadamente) aislados por causas mayores de salud
+	- Compañeros que han estado (desafortunadamente) aislados por causas de poco interés de participación
+
+Pero todas las funcionalidades que se ofrecen en el "Menú" del programa funcionan correctamente, superando con éxito los tests de prueba.
+
+
