@@ -17,7 +17,21 @@ namespace Dentista {
 
 class Contacto {
 public:
-	Contacto();
+	Contacto(){
+
+		setNombre("");
+		setApellidos("");
+		setDni("");
+		setTelefono1(0);
+		setTelefono2(0);
+		setCorreo1("");
+		setCorreo2("");
+		//setDireccion(direccion);
+		setAnotaciones("");
+		setContadorAcceso(0);
+		setFavorito(false);
+		//setRedes(red);
+	}
 
 	const std::string& getAnotaciones() const {
 		return anotaciones;

@@ -63,9 +63,9 @@ public:
 		{
 			pacientes.push_back(c);
 			//c.getNombre();
-			cout << "Paciente: " << c.getNombre() << " favorito: " << c.isFavorito() << endl;
-			getchar();
-			getchar();
+			// cout << "Paciente: " << c.getNombre() << " favorito: " << c.isFavorito() << endl;
+			// getchar();
+			// getchar();
 			flujoEntrada.read((char *) (&c), sizeof(Contacto));
 		}
 		flujoEntrada.close();

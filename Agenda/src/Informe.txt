@@ -1,0 +1,28 @@
+******************* AGENDA *******************
+Nombre: 	Jordi
+Apellidos: 	Bordoy
+DNI: 		234342
+Telefono 1: 	1111
+Telefono 2: 	1
+Correo 1: 	12
+Correo 2: 	12
+Anotaciones: 	12
+-------------------()-------------------
+Nombre: 	Alberto
+Apellidos: 	Canete
+DNI: 		12123
+Telefono 1: 	1111
+Telefono 2: 	1
+Correo 1: 	eeee
+Correo 2: 	e
+Anotaciones: 	1
+-------------------()-------------------
+Nombre: 	Fede
+Apellidos: 	Diaz
+DNI: 		S
+Telefono 1: 	1234
+Telefono 2: 	12
+Correo 1: 	2
+Correo 2: 	2
+Anotaciones: 	2
+-------------------()-------------------
